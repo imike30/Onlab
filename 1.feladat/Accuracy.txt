@@ -1,0 +1,7 @@
+Accuracy
+-XGBoost: 0.84-0.86
+-MLPClassifier: 0.83-0.86
+-RandomForest: 0.77-0.80
+-SVM: 0.82-0.85
+
+A legtöbbször a nincs hiba és a CE kapcsolat hibáját keverték össze a modellek.

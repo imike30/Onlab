@@ -7,13 +7,19 @@ from sklearn.multioutput import MultiOutputClassifier
 train_data = pd.read_csv("network_data.csv")
 test_data = pd.read_csv("test_data.csv")
 
-X_train = train_data.iloc[:, :-6]
-y_train = train_data.iloc[:, -6:]
+X_train = train_data.iloc[:, :-7]
+y_train = train_data.iloc[:, -7:]
 
-X_test = test_data.iloc[:, :-6]
-y_test = test_data.iloc[:, -6:]
+X_test = test_data.iloc[:, :-7]
+y_test = test_data.iloc[:, -7:]
 
-model = RandomForestClassifier(n_estimators=100, random_state=42)
+model = RandomForestClassifier(
+    n_estimators=300,
+    random_state=42,
+    max_depth=10,
+    max_features=6,
+    min_samples_leaf=5
+    )
 
 multi_target_rf = MultiOutputClassifier(model)
 
