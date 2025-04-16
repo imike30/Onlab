@@ -4,14 +4,14 @@ from sklearn.svm import SVC
 from sklearn.preprocessing import MinMaxScaler, LabelEncoder
 from sklearn.metrics import accuracy_score, classification_report
 
-train_data = pd.read_csv("network_data.csv")
-test_data = pd.read_csv("test_data.csv")
+train_data = pd.read_csv("bigger_network_data_missing.csv")
+test_data = pd.read_csv("bigger_test_data_missing.csv")
 
-X_train = train_data.iloc[:, :-7]
-y_train = train_data.iloc[:, -7:]
+X_train = train_data.iloc[:, :-11]
+y_train = train_data.iloc[:, -11:]
 
-X_test = test_data.iloc[:, :-7]
-y_test = test_data.iloc[:, -7:]
+X_test = test_data.iloc[:, :-11]
+y_test = test_data.iloc[:, -11:]
 
 y_train = y_train.idxmax(axis=1)
 y_test = y_test.idxmax(axis=1)
@@ -24,7 +24,7 @@ scaler = MinMaxScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-model = SVC(kernel='rbf', C=20.0, gamma='scale')
+model = SVC(kernel='linear', C=40.0, gamma='scale')
 model.fit(X_train_scaled, y_train_encoded)
 
 y_pred = model.predict(X_test_scaled)

@@ -1,16 +1,29 @@
 import random
 import csv
 
-output_file = "test_data.csv"
+
+output_file = "test_data_missing.csv"
 
 connections = ["AtoB", "BtoA", "BtoC", "CtoB", "CtoD", "DtoC", "CtoE", "EtoC", "DtoE", "EtoD", "EtoA", "AtoE"]
 failures = ["semmi", "AB", "BC", "CD", "DE", "EA", "CE"]
+
+connections.pop(0)
+connections.pop(0)
+
+connections.pop(4)
+connections.pop(4)
+
+connections.pop(0)
+connections.pop(0)
+
+connections.pop(2)
+connections.pop(2)
 
 with open(output_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(connections + failures)  #Header
 
-    for _ in range(100):
+    for _ in range(50):
 
         inA = random.random()
         inB = random.random()
@@ -110,6 +123,18 @@ with open(output_file, mode='w', newline='') as file:
             
             else:  #Nincs hiba
                 failure_flags[0] = 1
+
+            traffic.pop(0)
+            traffic.pop(0)
+
+            traffic.pop(4)
+            traffic.pop(4)
+
+            traffic.pop(0)
+            traffic.pop(0)
+
+            traffic.pop(2)
+            traffic.pop(2)
 
             writer.writerow(traffic + failure_flags)
 

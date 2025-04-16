@@ -5,3 +5,29 @@ Accuracy
 -SVM: 0.82-0.85
 
 A legtöbbször a nincs hiba és a CE kapcsolat hibáját keverték össze a modellek.
+
+BC és ED elvétele:
+Ugyanolyan marad az Accuracy
+
+AB és CE elvétele:
+A RandomForest kb 0.67-re esik vissza, azon kívül a többi ugyanolyan jól teljesít mint eddig
+
+AB, CE és BC elvétele:
+Ugyan olyanok az Accuracy-k, mint az előző esetben
+
+AB, CE, BC és DE elvétele:
+Minden algoritmusnak nagyjából 0,2-vel csökken az accuracy-ja (RF - 0,5, a többinek pedig ~0,62)
+
+NAGYOBB HÁLÓZATBAN:
+
+MLPClassifier: 0,91
+RandomForest: 0,98
+SVM: 0,91
+XGBoost: 0,97
+
+AB, CD, EG és FG elhagyásával:
+
+MLPClassifier: 0,8 - problémák: BE, BG, EG, semmi
+RandomForest: 0,82 - problémák: semmi, CD, EG
+SVM: 0,82 - problémák: BC, BE, BG, EG
+XGBoost: 0,89 - problémák: CD, EG, semmi

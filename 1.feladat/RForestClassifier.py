@@ -4,17 +4,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.multioutput import MultiOutputClassifier
 
-train_data = pd.read_csv("network_data.csv")
-test_data = pd.read_csv("test_data.csv")
+train_data = pd.read_csv("bigger_network_data_missing.csv")
+test_data = pd.read_csv("bigger_test_data_missing.csv")
 
-X_train = train_data.iloc[:, :-7]
-y_train = train_data.iloc[:, -7:]
+X_train = train_data.iloc[:, :-11]
+y_train = train_data.iloc[:, -11:]
 
-X_test = test_data.iloc[:, :-7]
-y_test = test_data.iloc[:, -7:]
+X_test = test_data.iloc[:, :-11]
+y_test = test_data.iloc[:, -11:]
 
 model = RandomForestClassifier(
-    n_estimators=300,
+    n_estimators=600,
     random_state=42,
     max_depth=10,
     max_features=6,
